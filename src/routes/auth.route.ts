@@ -10,7 +10,7 @@ router.post('/api/auth', (req, res) => {
     res.sendStatus(200)
 })
 
-router.post('api/session', validateResource(createSessionSchema), createSessionHandler)
+router.post('/api/session', validateResource(createSessionSchema), createSessionHandler)
 
 router.post('/api/session/refresh', refreshAccessTokenHandler)
 

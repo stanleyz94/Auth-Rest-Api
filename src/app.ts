@@ -1,4 +1,4 @@
-// require('dotenv').config()
+require('dotenv').config()
 import express from 'express'
 import router from './routes'
 import log from './utils/logger'
@@ -13,5 +13,5 @@ const port = process.env.PORT
 app.use(router)
 app.listen(port, () => {
     log.info('App started')
-    // connectToDb()
+    connectToDb()
 })

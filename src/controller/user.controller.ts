@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-// import * as nanoid from 'nanoid'
+import { nanoid } from 'nanoid';
 import { CreateUserInput, ForgotPasswordInput, ResetPasswordInput, VerifyUserInput } from '../schema/user.schema';
 import { createUser, findUserByEmail, findUserById } from '../service/user.service';
 import log from '../utils/logger';
@@ -69,7 +69,7 @@ export async function forgotPasswordHandler(req: Request<{}, {}, ForgotPasswordI
     }
 
 
-    const passwordResetCode = 'nanoid()'
+    const passwordResetCode = nanoid()
     user.passwordResetCode = passwordResetCode
 
     await user.save()
