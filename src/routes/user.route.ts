@@ -12,7 +12,7 @@ router.post('/api/users/verify/:id/:verificationCode', validateResource(verifyUs
 
 router.post('/api/users/forgotpassword', validateResource(forgotPasswordSchema), forgotPasswordHandler)
 
-router.post('/api/users/resetpassword/:id/:passwordresetCode', validateResource(resetPasswordSchema), resetPasswordHandler)
+router.post('/api/users/resetpassword/:id/:passwordResetCode', validateResource(resetPasswordSchema), resetPasswordHandler)
 
 router.get('/api/users/me', requireUser ,getCurrentUserHandler)
 
