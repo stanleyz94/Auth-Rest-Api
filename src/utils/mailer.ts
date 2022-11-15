@@ -3,7 +3,7 @@ import SMTPTransport from 'nodemailer/lib/smtp-transport'
 import log from './logger'
 
 
-const smtp = {
+const smtpSettings = {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
     host: process.env.SMTP_HOST,
@@ -12,8 +12,8 @@ const smtp = {
 }
 
 const transporter = nodemailer.createTransport({
-    ...smtp,
-    auth: {user: smtp.user, pass: smtp.pass },
+    ...smtpSettings,
+    auth: {user: smtpSettings.user, pass: smtpSettings.pass },
 } as SMTPTransport.Options)
 
 

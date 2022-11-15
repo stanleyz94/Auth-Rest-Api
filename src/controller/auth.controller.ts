@@ -1,10 +1,9 @@
 import { Request, Response } from 'express'
 import { get } from 'lodash';
-import { CreateSessionInput } from '../schema/auth.schema';
-import { findSessionById, signAccessToken, signRefreshToken } from '../service/auth.service';
-import { findUserByEmail, findUserById } from '../service/user.service';
-import { verifyJwt } from '../utils/jwt';
-
+import { CreateSessionInput } from '../schema/auth.schema'
+import { findSessionById, signAccessToken, signRefreshToken } from '../service/auth.service'
+import { findUserByEmail, findUserById } from '../service/user.service'
+import { verifyJwt } from '../utils/jwt'
  
 
 export async function createSessionHandler(req: Request<{}, {}, CreateSessionInput>, res:Response) {
