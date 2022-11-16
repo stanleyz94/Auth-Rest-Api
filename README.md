@@ -21,8 +21,3 @@ Simple REST API with Node.js and Express, which includes some basic operations l
 - Nodemailer
 - Zod
 - Winston
-
-
-MONGO_URI=mongodb://localhost:27017
-HOST_URL=http://localhost:1111
-PORT=1111

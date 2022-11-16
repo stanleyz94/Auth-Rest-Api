@@ -31,7 +31,7 @@ export async function createSessionHandler(req: Request<{}, {}, CreateSessionInp
     
 
     // send the tokens
-    return res.send({ accessToken, refreshToken})
+    return res.send({ accessToken, refreshToken })
 }
 
 export async function refreshAccessTokenHandler(req:Request, res: Response) {

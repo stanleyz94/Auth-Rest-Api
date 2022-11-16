@@ -6,7 +6,67 @@ import { createUserSchema, forgotPasswordSchema, resetPasswordSchema, verifyUser
 
 const router = express.Router()
 
+  /**
+   * @openapi
+   * '/api/users':
+   *  post:
+   *     tags:
+   *     - User
+   *     summary: Register a user
+   *     requestBody:
+   *      required: true
+   *      content:
+   *        application/json:
+   *           schema:
+   *              $ref: '#/components/schemas/CreateUserInput'
+   *     responses:
+   *      200:
+   *        description: Success
+   *        content:
+   *          application/json:
+   *            schema:
+   *              $ref: '#/components/schemas/CreateUserResponse'
+   *      409:
+   *        description: Conflict
+   *      400:
+   *        description: Bad request
+   *      500:
+   *        description: Something went wrong
+   */
 router.post('/api/users', validateResource(createUserSchema), createUserHandler)
+
+
+  /**
+   * @openapi
+   * '/api/users/verify/{id}/{verificationCode}':
+   *  post:
+   *     tags:
+   *     - User
+   *     summary: Verify account
+   *     parameters:
+   *      - name: id
+   *        in: path
+   *        description: The id of the product
+   *        required: true
+   *      - name: verificationCode
+   *        in: path
+   *        description: The verificationCode of the product
+   *        required: true
+   *        schema:
+   *          $ref: '#/components/schemas/VerifyUserInput'
+   *     responses:
+   *       200:
+   *         description: Success
+   *         content:
+   *          application/json:
+   *           schema:
+   *              $ref: '#/components/schemas/VerifyUserInput'
+   *       404:
+   *         description: Product not found
+   *       400:
+   *         description: Bad request
+   */
+
 
 router.post('/api/users/verify/:id/:verificationCode', validateResource(verifyUserSchema), verifyUserHandler)
 

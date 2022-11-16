@@ -4,7 +4,17 @@ import auth from './auth.route'
 
 const router = express.Router()
 
-
+  /**
+   * @openapi
+   * /healthcheck:
+   *  get:
+   *     tags:
+   *     - Healthcheck
+   *     description: Check if the app is up and running
+   *     responses:
+   *       200:
+   *         description: App is up and running
+   */
 router.get('/healthcheck', (_, res) => {
     res.sendStatus(200)
 })
