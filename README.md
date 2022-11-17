@@ -4,13 +4,20 @@
 ## About
 
 Simple REST API with Node.js and Express, which includes some basic operations like:
-- register a user - /api/users
-- verify user's email address - /api/users/verify/:id/:verificationCode
-- send forgot password email - /api/users/forgotpassword
-- reset password - /api/users/resetpassword/:id/:passwordresetCode
-- get current user - /api/users/me
-- login user
-- grant access token and refresh tokens - /api/session, /api/session/refresh
+
+
+- Register a user - /api/users
+- Verify user - /api/users/verify/:id/:verificationCode
+- Request reset password email - /api/users/forgotpassword
+- Reset password - /api/users/resetpassword/:id/:passwordresetCode
+- Get current user - /api/users/me
+- Login user - /api/session
+- Grant refresh tokens - /api/session/refresh
+
+API Docs are available on
+
+    -  http://localhost:1111/api-docs
+
 
 ### Project stack
 
@@ -21,3 +28,10 @@ Simple REST API with Node.js and Express, which includes some basic operations l
 - Nodemailer
 - Zod
 - Winston
+
+## Project Setup
+
+In your terminal
+
+    - docker compose up             (set ups whole app  - api and database)
+

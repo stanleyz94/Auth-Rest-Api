@@ -20,11 +20,11 @@ const options: swaggerJsDoc.Options = {
             },
           },
         },
-        security: [
-          {
-            bearerAuth: [],
-          },
-        ],
+        // security: [
+        //   {
+        //     bearerAuth: [],
+        //   },
+        // ],
       },
     apis: ['./src/routes/*.ts', './src/schema/*.ts'],
 }
