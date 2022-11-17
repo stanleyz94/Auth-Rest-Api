@@ -33,12 +33,12 @@ export async function verifyUserHandler(req: Request<VerifyUserInput>, res: Resp
     const user = await findUserById(id)
 
     if (!user) {
-        return res.send('Could not verify user')
+        return res.status(409).send('Could not verify user')
     }
 
     //check to see if they are already verified
     if (user.verified) {
-        return res.send('user is already verified')
+        return res.status(409).send('user is already verified')
     }
 
     //check to see if the verificationCode matches
@@ -50,7 +50,7 @@ export async function verifyUserHandler(req: Request<VerifyUserInput>, res: Resp
         return res.send('User successfuly verified')
     }
 
-    return res.send('Could not verify user')
+    return res.status(409).send('Could not verify user')
 
 }
 
@@ -61,11 +61,11 @@ export async function forgotPasswordHandler(req: Request<{}, {}, ForgotPasswordI
     
     if (!user) {
         log.debug(`User with email ${email} does not exist`)
-        return res.send(message)
+        return res.status(409).send(message)
     }
 
     if (!user.verified) {
-        return res.send('User is not verified')
+        return res.status(409).send('User is not verified')
     }
 
 

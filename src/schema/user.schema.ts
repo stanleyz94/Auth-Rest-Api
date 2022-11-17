@@ -17,6 +17,7 @@ import { object, string, TypeOf } from 'zod'
  *        email:
  *          type: string
  *          default: john.dan@gmail.com
+ *          format: email
  *        firstName:
  *          type: string
  *          default: John
@@ -26,29 +27,71 @@ import { object, string, TypeOf } from 'zod'
  *        password:
  *          type: string
  *          default: stringPassword123
+ *          format: password
  *        passwordConfirmation:
  *          type: string
  *          default: stringPassword123
+ *          format: password
  *    CreateUserResponse:
  *      type: object
  *      properties:
  *        email:
  *          type: string
+ *          format: email
  *        name:
  *          type: string
  *        _id:
  *          type: string
+ *          format: uuid
  *        createdAt:
  *          type: string
+ *          format: date-time
  *        updatedAt:
  *          type: string
-  *    VerifyUserInput:
+ *          format: date-time
+ *    VerifyUserInput:
  *      type: object
  *      properties:
  *        id:
  *          type: string
  *        verificationCode:
  *          type: string
+ *    ForgotPasswordInput:
+ *      type: object
+ *      properties:
+ *        email:
+ *          type: string
+ *          format: email
+ *    ResetPasswordInput:
+ *      type: object
+ *      properties:
+ *        password:
+ *          type: string
+ *          format: passsword
+ *        passwordConfirmation:
+ *          type: string
+ *          format: password
+ *    GetCurrentUserResponse:
+ *      type: object
+ *      properties:
+ *        email:
+ *          type: string
+ *          format: email
+ *        name:
+ *          type: string
+ *        _id:
+ *          type: string
+ *          format: uuid
+ *        createdAt:
+ *          type: string
+ *          format: date-time
+ *        updatedAt:
+ *          type: string
+ *          format: date-time
+ *        iat:
+ *          type: number
+ *        exp:
+ *          type: number        
  */
 
 export const createUserSchema = object({

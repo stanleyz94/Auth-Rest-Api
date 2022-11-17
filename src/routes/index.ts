@@ -15,6 +15,7 @@ const router = express.Router()
    *       200:
    *         description: App is up and running
    */
+
 router.get('/healthcheck', (_, res) => {
     res.sendStatus(200)
 })

@@ -11,17 +11,17 @@ export async function createSessionHandler(req: Request<{}, {}, CreateSessionInp
     const user = await findUserByEmail(email)
     const message = 'Invalid email or password'
     if(!user) {
-        return res.send(message)
+        return res.status(409).send(message)
     }
 
     if(!user.verified) {
-        return res.send('Please verify your email')
+        return res.status(409).send('Please verify your email')
     }
 
     const isValid = await user.validatePassword(password)
 
     if(!isValid) {
-        return res.send(message)
+        return res.status(409).send(message)
     }
 
     // sign a access token
